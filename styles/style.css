@@ -4,6 +4,13 @@ body {
   background: #f1f1f1;
 }
 
+.paginationjs {
+  line-height: 1.6;
+  font-family: Marmelad,"Lucida Grande",Arial,"Hiragino Sans GB",Georgia,sans-serif;
+  font-size: 14px;
+  box-sizing: initial;
+}
+
 .navbar {
   background: #fff;
   margin-bottom: 20px;

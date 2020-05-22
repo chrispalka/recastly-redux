@@ -20,7 +20,7 @@
 // };
 
 
-var searchYouTube = ({key, query, max = 5}, callback) => {
+var searchYouTube = ({key, query, max = 5, nextPage}, callback) => {
   const url = 'https://www.googleapis.com/youtube/v3/search/?';
   fetch(url + new URLSearchParams({
     part: 'snippet',
@@ -28,6 +28,7 @@ var searchYouTube = ({key, query, max = 5}, callback) => {
     q: query,
     maxResults: max,
     type: 'video',
+    pageToken: nextPage ? nextPage : '',
     videoEmbeddable: 'true'
   }))
     .then( response => response.json())
@@ -38,7 +39,25 @@ var searchYouTube = ({key, query, max = 5}, callback) => {
       }
     })
     .catch((error) => console.error(error));
+
 };
+
+// $('#demo').pagination({
+//   dataSource: 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?',
+//   locator: 'items',
+//   totalNumber: 120,
+//   pageSize: 20,
+//   ajax: {
+//       beforeSend: function() {
+//           dataContainer.html('Loading data from flickr.com ...');
+//       }
+//   },
+//   callback: function(data, pagination) {
+//       // template method of yourself
+//       var html = template(data);
+//       dataContainer.html(html);
+//   }
+// })
 
 
 export default searchYouTube;
