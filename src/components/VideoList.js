@@ -1,10 +1,10 @@
 import React from 'react';
 import VideoListEntry from './VideoListEntry.js';
 
-var VideoList = ({videos, handleVideoListEntryTitleClick}) => (
+var VideoList = ({videos, handleVideoListEntryTitleClick, handleSearchChange}) => (
   <div className="video-list">
     <div id="paginate">
-      <h5>2</h5>
+      <h5 className="click" onClick={() => handleSearchChange('', 'CAUQAA')}>2</h5>
     </div>
     {
       videos.map(video => (

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Search from './../components/Search.js';
 import handleSearchChange from '../actions/search.js';
+import VideoList from '../components/VideoList.js';
 
 var mapStateToProps = (state) => {
   return {
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps || undefined,
   mapDispatchToProps
 )(Search);
 

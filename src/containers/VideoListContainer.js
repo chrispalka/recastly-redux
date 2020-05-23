@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import VideoList from './../components/VideoList.js';
 import changeVideo from './../actions/currentVideo.js';
+import handleSearchChange from '../actions/search.js';
 
 var mapStateToProps = (state) => {
   return {
@@ -11,7 +12,13 @@ var mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // dispatching plain actions
-    handleVideoListEntryTitleClick: (video) => { dispatch(changeVideo(video)); },
+    handleVideoListEntryTitleClick: (video) => {
+      dispatch(changeVideo(video));
+    },
+    handleSearchChange: (q, nextPage) => {
+      dispatch(handleSearchChange(q, nextPage));
+    },
+
   };
 };
 export default connect (

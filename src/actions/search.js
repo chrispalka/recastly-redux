@@ -4,10 +4,11 @@ import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
 
-var handleSearchChange = (q) => {
+var handleSearchChange = (q, nextPage) => {
   var options = {
     key: YOUTUBE_API_KEY,
-    query: q,
+    query: q ? q : '',
+    pageToken: nextPage ? nextPage : ''
   };
   return (dispatch) => {
     searchYouTube(options, (videos) => {

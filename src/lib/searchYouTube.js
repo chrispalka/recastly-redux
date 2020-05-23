@@ -18,8 +18,10 @@
 //       );
 //     });
 // };
-
-
+// var nextPageToken;
+// if (window.nextPageToken === undefined) {
+//   window.nextPageToken = '';
+// }
 var searchYouTube = ({key, query, max = 5, nextPage}, callback) => {
   const url = 'https://www.googleapis.com/youtube/v3/search/?';
   fetch(url + new URLSearchParams({
@@ -33,7 +35,9 @@ var searchYouTube = ({key, query, max = 5, nextPage}, callback) => {
   }))
     .then( response => response.json())
     .then( data => {
-      console.log('Success:', data);
+      window.nextPageToken = data.nextPageToken;
+      console.log('Success:', data.items);
+      console.log('nextPageToken:', nextPageToken);
       if (callback) {
         callback(data.items);
       }

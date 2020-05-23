@@ -1,14 +1,5 @@
 var requestPage = (page) => ({
   type: 'REQUEST_PAGE',
-  payload: {
-    page
-  }
+  page: page
 });
 
-var receivePage = (page, videos) => ({
-  type: 'REQUEST_PAGE',
-  payload: {
-    page,
-    videos
-  }
-});
